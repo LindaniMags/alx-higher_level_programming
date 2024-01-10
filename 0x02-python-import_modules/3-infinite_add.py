@@ -3,7 +3,7 @@
 if __name__ == "__main__":
     import sys
 
-    tot = 0
+    sum = 0
     for item in range(len(sys.argv) - 1):
-        tot += int(sys.argv[item + 1])
-    print("{}".format(tot))
+        sum += int(sys.argv[item + 1])
+    print("{}".format(sum))
