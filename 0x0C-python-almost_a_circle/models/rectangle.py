@@ -2,7 +2,7 @@
 """
 Rectangle class.
 """
-from task1 import Base
+from base import Base
 
 class Rectangle(Base):
     """Define Rectangle class"""
