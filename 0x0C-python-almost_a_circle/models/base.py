@@ -4,6 +4,7 @@ Defines the base class.
 """
 import json
 
+
 class Base:
     """Base class."""
     __nb_objects = 0
@@ -55,7 +56,7 @@ class Base:
         file_2 = str(cls.__name__) + ".json"
         try:
             with open(file_2) as f:
-                dict_list = Base.from_json_string(f.read())
-                return [cls.create(**o) for o in dict_list]
+                list_dicts = Base.from_json_string(f.read())
+                return [cls.create(**o) for o in list_dicts]
         except IOError:
             return []
