@@ -82,3 +82,63 @@ class Rectangle(Base):
             [print(" ", end="") for x in range(self.x)]
             [print("#", end="") for w in range(self.width)]
             print("")
+
+    def __str__(self):
+        """overriding the __str__ method"""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
+    
+    def update(self, *args, **kwargs):
+        """Updating Rectangle class.
+
+        Args:
+            *args: added args.
+            1st arg: id
+            2nd arg: width
+            3rd arg: height
+            4th arg: x
+            5th arg: y
+            **kwargs: keyworded args
+        """
+        if args and len(args) != 0:
+            count = 0
+            for arg in args:
+                if count == 0:
+                    if arg is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = arg
+                elif count == 1:
+                    self.width = arg
+                elif count == 2:
+                    self.height = arg
+                elif count == 3:
+                    self.x = arg
+                elif count == 4:
+                    self.y = arg
+                count += 1
+
+        elif kwargs and len(kwargs) != 0:
+            for k, val in kwargs.items():
+                if k == "id":
+                    if val is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = val
+                elif k == "width":
+                    self.width = val
+                elif k == "height":
+                    self.height = val
+                elif k == "x":
+                    self.x = val
+                elif k == "y":
+                    self.y = val
+
+    def to_dictionary(self):
+        """Returns the dictionary representation of a Rectangle."""
+        return {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+        }
