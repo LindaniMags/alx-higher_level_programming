@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import requests
 import sys
 """" Sends a POST request to the passed URL with the email as a parameter """
