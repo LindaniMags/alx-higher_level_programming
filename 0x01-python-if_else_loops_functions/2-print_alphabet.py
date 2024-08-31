@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-"""Prints the alphabet in lowercase."""
-
-for c in range(97, 123):
-    print("{}".format(chr(c)), end="")
+"""prints the ASCII alphabet, in lowercase"""
+for c in range(ord("a"), ord("z") + 1):
+    print("{:c}".format(c), end="")
